@@ -7,6 +7,7 @@ const deleteSheets = require('./operations/delete')
 const aggregateWorkBooks = require('./operations/aggregate-books')
 const aggregateWorkSheets = require('./operations/aggregate-sheets')
 const getWorkBook = require('./operations/get-book')
+const getAllWorkBooksNames = require('./operations/get-all-books-names')
 
 const commandFolder = './commandBook/commandBook.xlsx'
 
@@ -67,6 +68,33 @@ for (let i=start+1; i<=end+1; i++) {
             const workBook = aggregateWorkSheets(getWorkBook(workBookName), sheetNames)
             xlsx.writeFile(workBook, `./resourceBook/${workBookName}`)
             break
+        }
+        case 'TO_XLS': {
+            let workBookNames = commandSheet[`B${i}`]
+            let workBookNamesList
+            if(!workBookNames){
+                workBookNamesList = getAllWorkBooksNames()
+            } else {
+                workBookNamesList = workBookNames.v.split(',')
+            }
+            workBookNamesList.forEach((workBookName) => {
+                const name = workBookName.replace(/xlsx/,'xls')
+                xlsx.writeFile(getWorkBook(workBookName), `./resourceBook/${name}`)
+            })
+            break
+        }
+        case 'TO_XLSX': {
+            let workBookNames = commandSheet[`B${i}`]
+            let workBookNamesList
+            if(!workBookNames){
+                workBookNamesList = getAllWorkBooksNames()
+            } else {
+                workBookNamesList = workBookNames.v.split(',')
+            }
+            workBookNamesList.forEach((workBookName) => {
+                const name = workBookName.replace(/xls$/,'xlsx')
+                xlsx.writeFile(getWorkBook(workBookName), `./resourceBook/${name}`)
+            })
         }
     }
     xlsx.writeFile(commandBook, commandFolder)
