@@ -10,6 +10,7 @@
 ###### 7. Aggregate all the WorkSeets across WorkBooks to a single WorkBook.  
 ###### 8. Aggregate list of WorkSheets who have similar headers into a single sheet.  
 ###### 9. Rename WorkSheets in a WorkBook.  
+###### 10. Get All the cell ranges which are merges in a WorkSheet of a WorkBook.  
 
 This project can make all these operations to be performed a lot easier.  
 
@@ -115,4 +116,12 @@ This will convert the provided workbooks from xlsx/xls to xlsx.
 The arguments would be the list of ```','``` separted workbook names.  If no argument is provided all the workbooks will be converted to xlsx format. 
 The same workbook is not converted rather a new book is added with same name and xlsx format. 
 
+###### 10. MERGES
+This will all the merged cell ranges in a worksheet of a workbook as ```','``` separated list.  
+
+The arguments in different cells are workbook name followed by worksheet name.
+
+**Input** | **Result**
+-----------|-----------
+![image](https://user-images.githubusercontent.com/24797779/111033019-34dd8d00-8435-11eb-919b-84fb6e7b1cdb.png)|![image](https://user-images.githubusercontent.com/24797779/111033014-2db67f00-8435-11eb-8bc6-c504d5a73c67.png)
 
