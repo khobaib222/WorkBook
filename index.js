@@ -8,9 +8,9 @@ const aggregateWorkBooks = require('./operations/aggregate-books')
 const aggregateWorkSheets = require('./operations/aggregate-sheets')
 const getWorkBook = require('./operations/get-book')
 const getAllWorkBooksNames = require('./operations/get-all-books-names')
+const getMerges = require('./operations/get-merges')
 
 const commandFolder = './commandBook/commandBook.xlsx'
-
 
 const commandBook = xlsx.readFile(commandFolder)
 const { Sheets } = commandBook
@@ -95,6 +95,13 @@ for (let i=start+1; i<=end+1; i++) {
                 const name = workBookName.replace(/xls$/,'xlsx')
                 xlsx.writeFile(getWorkBook(workBookName), `./resourceBook/${name}`)
             })
+            break
+        }
+        case 'MERGES': {
+            const workBookName = commandSheet[`B${i}`].v
+            const workSheetName = commandSheet[`C${i}`].v
+            xlsx.utils.sheet_add_aoa(commandSheet, [[getMerges(workBookName, workSheetName)]], {origin: `D${i}`})
+            break
         }
     }
     xlsx.writeFile(commandBook, commandFolder)
