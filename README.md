@@ -117,7 +117,7 @@ The arguments would be the list of ```','``` separted workbook names.  If no arg
 The same workbook is not converted rather a new book is added with same name and xlsx format. 
 
 ###### 10. MERGES
-This will all the merged cell ranges in a worksheet of a workbook as ```','``` separated list.  
+This will give all the merged cell ranges in a worksheet of a workbook as ```','``` separated list.  
 
 The arguments in different cells are workbook name followed by worksheet name.
 
