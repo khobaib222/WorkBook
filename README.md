@@ -8,7 +8,8 @@
 ###### 5. Convert a list of xlsx format WorkBooks to xls.  
 ###### 6. Convert a list of xls format WorkBooks to xlsx.  
 ###### 7. Aggregate all the WorkSeets across WorkBooks to a single WorkBook.  
-###### 8. Aggredate list of WorkSheets who have similar headers into a single sheet.  
+###### 8. Aggregate list of WorkSheets who have similar headers into a single sheet.  
+###### 9. Rename WorkSheets in a WorkBook.  
 
 This project can make all these operations to be performed a lot easier.  
 
@@ -85,7 +86,7 @@ The arguments in different cells are ```','``` separated workbook names followed
 -----------|-----------
 ![image](https://user-images.githubusercontent.com/24797779/111024305-1c08b380-8404-11eb-9830-37d6949cde05.png)|![image](https://user-images.githubusercontent.com/24797779/111024328-3b074580-8404-11eb-9b2e-4f911bb722be.png)
 
-###### 6. AGG-WS
+###### 7. AGG-WS
 This will aggregate the work sheets with similar header into a single worksheet of a workbook. 
 
 The arguments in different cells are workbook name followed by the ```','``` separated sheet names. If sheet names are not provided then all the sheets will be aggregated with similar headers of that work book. 
@@ -96,7 +97,7 @@ The arguments in different cells are workbook name followed by the ```','``` sep
 
 **Note: This operation works only on simple sheets with simple headers. Having only first row as header without any merge cells. Also the name of the generated sheets can be any unique name. Since the use won't be knowing how many different sheets can be generated because of different headers so specifying arguments is not possbile for new sheet names. Although a list of new sheet names can be given equal to the total number of current sheets and then only some of the first names would be picked up as the new names. But this is not supported yet**.  
 
-###### 6. TO_XLS
+###### 8. TO_XLS
 This will convert the provided workbooks from xls/xlsx to xls. 
 
 The arguments would be the list of ```','``` separted workbook names.  If no argument is provided all the workbooks will be converted to xls format. 
@@ -108,7 +109,7 @@ The same workbook is not converted rather a new book is added with same name and
 
 
 
-###### 6. TO_XLSX
+###### 9. TO_XLSX
 This will convert the provided workbooks from xlsx/xls to xlsx. 
 
 The arguments would be the list of ```','``` separted workbook names.  If no argument is provided all the workbooks will be converted to xlsx format. 
