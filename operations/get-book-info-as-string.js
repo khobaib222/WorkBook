@@ -1,6 +1,6 @@
 const getWorkBookInfo = require('./get-book-info')
 
-const getWorkBookInfoAsArray = (workBookName) => {
+const getWorkBookInfoAsString = (workBookName) => {
     const { filledSheetNames, emptySheetNames } = getWorkBookInfo(workBookName)
     let val = ''
     if (filledSheetNames.length) {
@@ -15,4 +15,4 @@ const getWorkBookInfoAsArray = (workBookName) => {
     return val
 }
 
-module.exports = getWorkBookInfoAsArray
+module.exports = getWorkBookInfoAsString
