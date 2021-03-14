@@ -9,6 +9,7 @@ const aggregateWorkSheets = require('./operations/aggregate-sheets')
 const getWorkBook = require('./operations/get-book')
 const getAllWorkBooksNames = require('./operations/get-all-books-names')
 const getMerges = require('./operations/get-merges')
+const fs = require('fs')
 
 const commandFolder = './commandBook/commandBook.xlsx'
 
@@ -101,6 +102,19 @@ for (let i=start+1; i<=end+1; i++) {
             const workBookName = commandSheet[`B${i}`].v
             const workSheetName = commandSheet[`C${i}`].v
             xlsx.utils.sheet_add_aoa(commandSheet, [[getMerges(workBookName, workSheetName)]], {origin: `D${i}`})
+            break
+        }
+        case 'TO_CSV':{
+            const workBookName = commandSheet[`B${i}`].v
+            const workSheetNames = commandSheet[`C${i}`].v
+            const workSheets = workSheetNames.split(',')
+            const workBook = getWorkBook(workBookName)
+            const { Sheets: WorkSheets } = workBook
+            workSheets.forEach(workSheetName => {
+                const output_file_name = `./csvOutputs/${workBookName.replace(/\.(xlsx|xls)/,'')}_${workSheetName}.csv`
+                const stream = xlsx.stream.to_csv(WorkSheets[workSheetName])
+                stream.pipe(fs.createWriteStream(output_file_name))
+            })
             break
         }
     }
