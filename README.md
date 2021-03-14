@@ -11,6 +11,7 @@
 ###### 8. Aggregate list of WorkSheets who have similar headers into a single sheet.  
 ###### 9. Rename WorkSheets in a WorkBook.  
 ###### 10. Get All the cell ranges which are merges in a WorkSheet of a WorkBook.  
+###### 11. Convert a list of WorkSheets in a WorkBook to CSV. 
 
 This project can make all these operations to be performed a lot easier.  
 
@@ -19,11 +20,12 @@ This project can make all these operations to be performed a lot easier.
 ###### 2. Run ```npm install``` in project directory.  
 ###### 3. Make a folder with name ```commandBook```.  
 ###### 4. Make a folder with name ```resourceBook```.  
-###### 5. Inside ```commandBook``` folder make a WorkBook with name ```commandBook.xlsx``` having a sheet with name ```commandSheet```.  
-###### 6. Pull all the WorkBooks on which you want to perform the operations into ```resourceBook``` folder. 
-###### 7. Fill ```commandSheet``` with commands.  
-###### 8. Close ```commandBook``` workbook and all other books of ```resouceBook``` folder.  
-###### 9. Run ```node index.js```. 
+###### 5. Make a folder with name ```csvOutputs```(contains output of TO_CSV commands).  
+###### 6. Inside ```commandBook``` folder make a WorkBook with name ```commandBook.xlsx``` having a sheet with name ```commandSheet```.  
+###### 7. Pull all the WorkBooks on which you want to perform the operations into ```resourceBook``` folder. 
+###### 8. Fill ```commandSheet``` with commands.  
+###### 9. Close ```commandBook``` workbook and all other books of ```resouceBook``` folder.  
+###### 10. Run ```node index.js```. 
 
 commandSheet contains all the commands to perform the operations on workbooks in your resourceBook folder.  
 
@@ -125,3 +127,14 @@ The arguments in different cells are workbook name followed by worksheet name.
 -----------|-----------
 ![image](https://user-images.githubusercontent.com/24797779/111033019-34dd8d00-8435-11eb-919b-84fb6e7b1cdb.png)|![image](https://user-images.githubusercontent.com/24797779/111033014-2db67f00-8435-11eb-8bc6-c504d5a73c67.png)
 
+###### 11. TO_CSV
+This will convert a list of given worksheets in a workbook to csv format.  
+
+The agruments in different cells are WorkBook name followed by the list of ```','``` separated WorkSheet names to be converated to csv format.  
+
+**Input**
+---------
+
+![image](https://user-images.githubusercontent.com/24797779/111071875-2909cd80-84fe-11eb-94a2-06908d2c557e.png)
+
+The output will be stored in **```csvOutputs```** folder
